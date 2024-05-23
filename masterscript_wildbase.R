@@ -11,21 +11,21 @@ rm(list=ls())
 ##############################################################################################################
 
 # Which packages are being used?
-gebruikte_packages <- c(
+used_packages <- c(
   "tidyverse", "readxl", "writexl", "stars", "MASS", "DescTools", "PropCIs", "mapview", "RColorBrewer", 
   "sf", "foreign", "parallel", "janitor", "terra", "raster", "lubridate", "ggpubr", "lme4", "knitr")
 
 # Which packages have already been installed?
-geinstalleerde_packages <- rownames(installed.packages())
+installed_packages <- rownames(installed.packages())
 
 # Install packages 
-installeren_packages <- gebruikte_packages[!gebruikte_packages %in% geinstalleerde_packages]
-if (length(installeren_packages) > 0) install.packages(pkgs = installeren_packages)
+install_packages <- used_packages[!used_packages %in% installed_packages]
+if (length(install_packages) > 0) install.packages(pkgs = install_packages)
 
 # Load unattached packages
-if (!all(gebruikte_packages %in% .packages())) {
+if (!all(used_packages %in% .packages())) {
   suppressMessages(invisible(lapply(
-    X              = gebruikte_packages,
+    X              = used_packages,
     FUN            = library,
     character.only = TRUE)))}
 
@@ -80,3 +80,12 @@ function_reference_search <- function(x, y, grp) {
     special(x, y, grp+1)
   }
 }
+
+##############################################################################################################
+# Scripts
+##############################################################################################################
+
+source(file = "Scripts/Script_key_numbers.R")
+
+
+
