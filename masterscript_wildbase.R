@@ -77,7 +77,7 @@ function_reference_search <- function(x, y, grp) {
                  mutate(grp=grp))
     
     y <- setdiff(y, y[similar,])
-    special(x, y, grp+1)
+    function_reference_search(x, y, grp+1)
   }
 }
 
